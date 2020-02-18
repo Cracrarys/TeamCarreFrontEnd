@@ -8,6 +8,9 @@ import { DocumentRHComponent } from './entity/document-rh/document-rh.component'
 import { FournitureComponent } from './entity/fourniture/fourniture.component';
 import { FormulaireEmpruntComponent } from './entity/formulaire-emprunt/formulaire-emprunt.component';
 
+import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import { FormulaireEmpruntComponent } from './entity/formulaire-emprunt/formulai
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl:'never'})
   ],
   providers: [],
   bootstrap: [AppComponent]
