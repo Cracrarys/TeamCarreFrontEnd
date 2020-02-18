@@ -9,9 +9,15 @@ export class FormulaireEmprunt {
     dateEmprunt:Date;
     dateRetour:Date;
 <<<<<<< HEAD
+<<<<<<< HEAD
     employe:Employe;
     demandeValidee:Boolean;
     fourniture:Fourniture;
 =======
+>>>>>>> simon
+=======
+    employe:Employe;
+    demandeValidee:Boolean;
+    fourniture:Fourniture;
 >>>>>>> simon
 }
