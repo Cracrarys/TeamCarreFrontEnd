@@ -8,16 +8,7 @@ export class FormulaireEmprunt {
     nomFormulaire:string;
     dateEmprunt:Date;
     dateRetour:Date;
-<<<<<<< HEAD
-<<<<<<< HEAD
     employe:Employe;
     demandeValidee:Boolean;
     fourniture:Fourniture;
-=======
->>>>>>> simon
-=======
-    employe:Employe;
-    demandeValidee:Boolean;
-    fourniture:Fourniture;
->>>>>>> simon
 }
