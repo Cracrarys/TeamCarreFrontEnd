@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FournitureService {
-  public fourniture_API = 'http://localhost:8080' + '/fournitureRestController';
+  public fourniture_API = 'http://localhost:8081' + '/fournitureRestController';
   constructor(private http: HttpClient) { }
   ajoutFourniture(four: Fourniture): Observable<any> {
     return this.http.post(this.fourniture_API + '/ajout', four);
