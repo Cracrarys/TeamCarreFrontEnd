@@ -4,5 +4,4 @@ export class FormulaireEmprunt {
     nomFormulaire:string;
     dateEmprunt:Date;
     dateRetour:Date;
-    
 }
