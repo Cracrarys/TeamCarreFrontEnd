@@ -10,5 +10,5 @@ export class Fourniture {
     typeFourniture: String;
     consommable: boolean;
     formulaire: FormulaireEmprunt[];
-    employe: Employe;
+    employe: Employe[];
 }
