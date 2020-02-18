@@ -10,6 +10,10 @@ import { FormulaireEmpruntComponent } from './entity/formulaire-emprunt/formulai
 
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DocumentRHService } from './services/document-rh.service';
+import { EmployeService } from './services/employe.service';
+import { FormulaireEmpruntService } from './services/formulaire-emprunt.service';
+import { FournitureService } from './services/fourniture.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl:'never'})
   ],
-  providers: [],
+  providers: [DocumentRHService,EmployeService,FormulaireEmpruntService,FournitureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
