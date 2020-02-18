@@ -1,9 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FormulaireEmprunt } from '../model/formulaire-emprunt';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormulaireEmpruntService {
-
-  constructor() { }
+  public formulaire_API = 'http://localhost:8080' + '/formulaireRestController';
+  constructor(private http: HttpClient) { }
+  ajoutFormulaire(formu: FormulaireEmprunt, idemp: string, idfour: string): Observable<any> {
+    return this.http.post(this.formulaire_API + '/ajout' + idemp + '/&/' + idfour, formu);
+  };
+  suppFormulaire(id: string): Observable<any> {
+    return this.http.delete(this.formulaire_API + '/supprimer/' + id);
+  };
+  findAllFormulaire(): Observable<any> {
+    return this.http.get(this.formulaire_API + '/getAll');
+  }
+  findFormulaire(id: string): Observable<any> {
+    return this.http.get(this.formulaire_API + '/getbyid/' + id);
+  }
 }
