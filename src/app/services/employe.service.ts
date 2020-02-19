@@ -16,7 +16,7 @@ export class EmployeService {
     return this.http.post( this.employe_API + 'ajout', emp);
   }
 
-  supprimerEmploye(idEmp:string):Observable<any>{
+  supprimerEmploye(idEmp:number):Observable<any>{
     return this.http.delete(this.employe_API + 'supprimer/' + idEmp);
   }
 
@@ -24,7 +24,7 @@ export class EmployeService {
     return this.http.get(this.employe_API + 'getAll');
   }
   
-  getEmpById(id:string):Observable<any>{
+  getEmpById(id:number):Observable<any>{
     return this.http.get(this.employe_API + 'getbyid/' + id);
   }
 

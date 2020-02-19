@@ -29,11 +29,22 @@ export class FournitureComponent implements OnInit {
   constructor(private fournservice : FournitureService) { this.fourn = new Fourniture(); }
 
   ngOnInit() {
+    this.getAllFourn();
   }
 
-  getAllForm(){
+  getAllFourn(){
     this.fournservice.findAllFourniture().subscribe(data=>{
       this.lstFourn = data;
+      console.log("Got all fournitures !")
+    },
+      error => {console.log(error);
+    });
+  }
+
+  getFournId(){
+    this.fournservice.findFourniture(this.fourn.idFourniture).subscribe(data=>{
+      this.fourn = data;
+      console.log("Got it !")
     },
       error => {console.log(error);
     });
@@ -42,6 +53,13 @@ export class FournitureComponent implements OnInit {
   ajoutFourniture() : void {
     this.fournservice.ajoutFourniture(this.fourn).subscribe(data=>{
       console.log( "Fourniture ajouté avec succès !!" );
+      window.location.reload();
+    });
+  }
+
+  supprimerFourniture():void{
+    this.fournservice.suppFourniture(this.fourn.idFourniture).subscribe(data=>{
+      console.log("Fourniture supprimée avec succès !")
       window.location.reload();
     });
   }
