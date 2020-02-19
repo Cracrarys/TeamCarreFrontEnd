@@ -1,0 +1,211 @@
+
+
+
+<div class="card-header bg-dark text-white" align="center">
+    <h1 class="card-title"><b>Portail des fournitures</b></h1>
+</div>
+
+    <div style="width:100%; margin:0 auto;background-color: darkslategrey;" align="center">
+        <br/>
+        <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Ajouter un Employe</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+
+                            <form [formGroup]="myForm">
+
+                                <div class="form-group">
+                                    <label for="alterEgo">idEmploye</label>
+                                    <input type="number" [(ngModel)]="employe.idEmploye" class="form-control"
+                                        formControlName="idEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">nomEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.nomEmploye" class="form-control"
+                                        formControlName="nomEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">prenomEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.prenomEmploye" class="form-control"
+                                        formControlName="prenomEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">sexeEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.sexeEmploye" class="form-control"
+                                        formControlName="sexeEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">adresseEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.adresseEmploye" class="form-control"
+                                        formControlName="adresseEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">statutEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.statutEmploye" class="form-control"
+                                        formControlName="statutEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">salaireEmploye</label>
+                                    <input type="number" [(ngModel)]="employe.salaireEmploye" class="form-control"
+                                        formControlName="salaireEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">typeContratEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.typeContratEmploye" class="form-control"
+                                        formControlName="typeContratEmploye" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">dateEntreeEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.dateEntreeEmploye" class="form-control"
+                                        formControlName="dateEntreeEmploye" id="datepicker3" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">dateSortieEmploye</label>
+                                    <input type="string" [(ngModel)]="employe.dateSortieEmploye" class="form-control"
+                                        formControlName="dateSortieEmploye" />
+                                </div>
+                                
+
+                                <div align="center">
+                                    <button class="btn btn-success btn-lg btn-block" type="button" (click)="ajoutEmploye()">Ajout/Modifier Employe</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Récupérer / Supprimer un employe</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <form [formGroup]="myFormDelete">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1 width = 100%>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Nom Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Prenom Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Sexe Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Adresse Employe
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr align="center">
+                                                <td width=33% align="center">
+                                                    <select [(ngModel)]="employe.idEmploye" [ngModelOptions]="{standalone: true}" (ngModelChange)="getEmpById()">
+                                                        <option value="" disabled>Choix id Employe</option>
+                                                        <option *ngFor="let emp of lstemployes" [ngValue]="emp.idEmploye" >{{emp.idEmploye}}</option>
+                                                    </select>
+                                                </td>
+                                                <td width=33%>{{employe.nomEmploye}}</td>
+                                                <td width=33%>{{employe.prenomEmploye}}</td>
+                                                <td width=33%>{{employe.sexeEmploye}}</td>
+                                                <td width=33%>{{employe.adresseEmploye}}</td>
+                                            </tr>
+                                            <tr align="center">
+                                                <th class="bg-info text-white">
+                                                    Statut Employe
+                                                </th>
+                                                <th class="bg-info text-white">
+                                                    Salaire Employe
+                                                </th>
+                                                <th class="bg-info text-white">
+                                                    Type Contrat Employe
+                                                </th>
+                                                <th class="bg-info text-white">
+                                                    Date Entree
+                                                </th>
+                                                <th class="bg-info text-white">
+                                                    Date Sortie
+                                                </th>
+                                            </tr>
+                                            <tr align="center">
+                                                <td width=33%>{{employe.statutEmploye}}</td>
+                                                <td width=33%>{{employe.salaireEmploye}} € par mois</td>
+                                                <td width=33%>{{employe.typeContratEmploye}}</td>
+                                                <td width=33%>{{employe.dateEntreeEmploye}}</td>
+                                                <td width=33%>{{employe.dateSortieEmploye}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button class="btn btn-danger btn-lg btn-block" type="button" (click)="supprimerFourniture()">Supprimer Fourniture</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Liste des employés</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Nom Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Prenom Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Sexe
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let emp of lstemployes" align="center">
+                                                <th width=33%>{{emp.idEmploye}}</th>
+                                                <td width=33%>{{emp.nomEmploye}}</td>
+                                                <td width=33%>{{emp.prenomEmploye}}</td>
+                                                <td width=33%>{{emp.sexeEmploye}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+    </div>
+

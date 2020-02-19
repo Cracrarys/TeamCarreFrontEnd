@@ -24,7 +24,7 @@ export class DocumentRHService {
     return this.http.get(this.document_API + 'getAll');
   }
   
-  getDocById(id:string):Observable<any>{
+  getDocById(id:number):Observable<any>{
     return this.http.get(this.document_API + 'getbyid/' + id);
   }
 

@@ -97,19 +97,72 @@
                                         <tbody>
                                             <tr align="center">
                                                 <td width=33% align="center">
-                                                    <select [(ngModel)]="client.idClient" [ngModelOptions]="{standalone: true}" (ngModelChange)="getClientId()">
-                                                        <option value="" disabled>Choose customer's Id</option>
-                                                        <option *ngFor="let clt of lstClients" [ngValue]="clt.idClient" >{{clt.idClient}}</option>
+                                                    <select [(ngModel)]="fourn.idFourniture" [ngModelOptions]="{standalone: true}" (ngModelChange)="getFournId()">
+                                                        <option value="" disabled>Choix id Fourniture</option>
+                                                        <option *ngFor="let fou of lstFourn" [ngValue]="fou.idFourniture" >{{fou.idFourniture}}</option>
                                                     </select>
                                                 </td>
-                                                <td width=33%>{{client.nomClient}}</td>
-                                                <td width=33%>{{client.numTel}}</td>
+                                                <td width=33%>{{fourn.nomFourniture}}</td>
+                                                <td width=33%>{{fourn.quantiteDisponible}}</td>
+                                                <td width=33%>{{fourn.quantiteTotale}}</td>
+                                                <td width=33%>{{fourn.typeFourniture}}</td>
+                                                <td width=33%>{{fourn.consommable}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <button class="btn btn-danger btn-lg btn-block" type="button" (click)="supprimerClient()">Supprimer Client</button>
+                                    <button class="btn btn-danger btn-lg btn-block" type="button" (click)="supprimerFourniture()">Supprimer Fourniture</button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Liste des fournitures</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Fourniture
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Nom Fourniture
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité Disponible
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité Totale
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Type Fourniture
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Consommable ?
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let fou of lstFourn" align="center">
+                                                <th width=33%>{{fou.idFourniture}}</th>
+                                                <td width=33%>{{fou.nomFourniture}}</td>
+                                                <td width=33%>{{fou.quantiteDisponible}}</td>
+                                                <td width=33%>{{fou.quantiteTotale}}</td>
+                                                <td width=33%>{{fou.typeFourniture}}</td>
+                                                <td width=33%>{{fou.consommable}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                         </div>
                     </div>
                 </div>

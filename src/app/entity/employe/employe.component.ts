@@ -12,6 +12,7 @@ export class EmployeComponent implements OnInit {
 
   employe:Employe;
   lstemployes:Employe[];
+  date: {year: number, month: number};
 
   myForm = new FormGroup({
     idEmploye : new FormControl('',Validators.required),
@@ -24,7 +25,11 @@ export class EmployeComponent implements OnInit {
     typeContratEmploye : new FormControl('',Validators.required),
     dateEntreeEmploye : new FormControl('',Validators.required),
     dateSortieEmploye : new FormControl('',Validators.required)
-  })
+  });
+
+  myFormDelete = new FormGroup({
+    idEmploye : new FormControl('',Validators.required)
+  });
 
   constructor(private employeservice:EmployeService) { this.employe = new Employe }
 
@@ -32,9 +37,16 @@ export class EmployeComponent implements OnInit {
     this.getAllEmp();
   }
 
-  ajoutEmploye(){
+  ajoutEmploye() : void{
     this.employeservice.ajoutEmploye(this.employe).subscribe(data=>{
       console.log( "Employé ajouté avec succès !!" );
+      window.location.reload();
+    });
+  }
+
+  supprimerEmploye():void{
+    this.employeservice.supprimerEmploye(this.employe.idEmploye).subscribe(data=>{
+      console.log( "Employé supprimé avec succès !!" );
       window.location.reload();
     });
   }
@@ -42,6 +54,15 @@ export class EmployeComponent implements OnInit {
   getAllEmp(){
     this.employeservice.getAllEmployes().subscribe(data=>{
       this.lstemployes = data;
+      console.log( "Liste des employés récupérée !" );
+    },
+      error => {console.log(error);
+    });
+  }
+
+  getEmpById(){
+    this.employeservice.getEmpById(this.employe.idEmploye).subscribe(data=>{
+      this.employe = data;
     },
       error => {console.log(error);
     });

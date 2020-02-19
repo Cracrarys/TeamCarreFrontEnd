@@ -12,13 +12,13 @@ export class FournitureService {
   ajoutFourniture(four: Fourniture): Observable<any> {
     return this.http.post(this.fourniture_API + '/ajout', four);
   };
-  suppFourniture(id: string): Observable<any> {
+  suppFourniture(id: number): Observable<any> {
     return this.http.delete(this.fourniture_API + '/supprimer/' + id);
   };
   findAllFourniture(): Observable<any> {
     return this.http.get(this.fourniture_API + '/getAll');
   }
-  findFourniture(id: string): Observable<any> {
+  findFourniture(id: number): Observable<any> {
     return this.http.get(this.fourniture_API + '/getbyid/' + id);
   }
 }

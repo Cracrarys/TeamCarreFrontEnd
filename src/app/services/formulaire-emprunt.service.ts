@@ -12,13 +12,13 @@ export class FormulaireEmpruntService {
   ajoutFormulaire(formu: FormulaireEmprunt, idemp: string, idfour: string): Observable<any> {
     return this.http.post(this.formulaire_API + '/ajout' + idemp + '/&/' + idfour, formu);
   };
-  suppFormulaire(id: string): Observable<any> {
+  suppFormulaire(id: number): Observable<any> {
     return this.http.delete(this.formulaire_API + '/supprimer/' + id);
   };
   findAllFormulaire(): Observable<any> {
     return this.http.get(this.formulaire_API + '/getAll');
   }
-  findFormulaire(id: string): Observable<any> {
+  findFormulaire(id: number): Observable<any> {
     return this.http.get(this.formulaire_API + '/getbyid/' + id);
   }
 }
