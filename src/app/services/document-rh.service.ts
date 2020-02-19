@@ -12,7 +12,7 @@ export class DocumentRHService {
 
   public document_API = 'http://localhost:8081/documentRestController/';
 
-  ajoutDocument({ doc, idemp }: { doc: DocumentRH; idemp: number; }):Observable<any>{
+  ajoutDocument({ doc, idemp }: { doc: DocumentRH; idemp: string; }):Observable<any>{
     return this.http.post( this.document_API + 'ajout/' + idemp, doc);
   }
 
