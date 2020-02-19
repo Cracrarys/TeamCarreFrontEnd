@@ -10,7 +10,7 @@ export class EmployeService {
 
   constructor(private http:HttpClient) { }
 
-  public employe_API = 'http://localhost:8080/employeRestController/';
+  public employe_API = 'http://localhost:8081/employeRestController/';
 
   ajoutEmploye(emp:Employe):Observable<any>{
     return this.http.post( this.employe_API + 'ajout', emp);

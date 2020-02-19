@@ -1,1 +1,122 @@
-<p>fourniture works!</p>
+<div class="card-header bg-dark text-white" align="center">
+    <h1 class="card-title"><b>Portail des fournitures</b></h1>
+</div>
+
+    <div style="width:100%; margin:0 auto;background-color: darkslategrey;" align="center">
+        <br/>
+        <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Ajouter une fourniture</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+
+                            <form [formGroup]="myForm">
+
+                                <div class="form-group">
+                                    <label for="alterEgo">idFourniture</label>
+                                    <input type="number" [(ngModel)]="fourn.idFourniture" class="form-control"
+                                        formControlName="idFourniture" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">nomFourniture</label>
+                                    <input type="string" [(ngModel)]="fourn.nomFourniture" class="form-control"
+                                        formControlName="nomFourniture" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">quantiteDisponible</label>
+                                    <input type="number" [(ngModel)]="fourn.quantiteDisponible" class="form-control"
+                                        formControlName="quantiteDisponible" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">quantiteTotale</label>
+                                    <input type="number" [(ngModel)]="fourn.quantiteTotale" class="form-control"
+                                        formControlName="quantiteTotale" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">typeFourniture</label>
+                                    <input type="string" [(ngModel)]="fourn.typeFourniture" class="form-control"
+                                        formControlName="typeFourniture" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">consommable</label>
+                                    <input type="checkbox" [(ngModel)]="fourn.consommable" class="form-control"
+                                    formControlName="consommable"/>
+                                </div>
+
+                                <div align="center">
+                                    <button class="btn btn-success btn-lg btn-block" type="button" (click)="ajoutFourniture()">Ajout/Modifier Fourniture</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Récupérer / Supprimer une fourniture</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <form [formGroup]="myFormDelete">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Fourniture
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Nom Fourniture
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité Disponible
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité Totale
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Type Fourniture
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Consommable ?
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr align="center">
+                                                <td width=33% align="center">
+                                                    <select [(ngModel)]="client.idClient" [ngModelOptions]="{standalone: true}" (ngModelChange)="getClientId()">
+                                                        <option value="" disabled>Choose customer's Id</option>
+                                                        <option *ngFor="let clt of lstClients" [ngValue]="clt.idClient" >{{clt.idClient}}</option>
+                                                    </select>
+                                                </td>
+                                                <td width=33%>{{client.nomClient}}</td>
+                                                <td width=33%>{{client.numTel}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button class="btn btn-danger btn-lg btn-block" type="button" (click)="supprimerClient()">Supprimer Client</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+    </div>
+
