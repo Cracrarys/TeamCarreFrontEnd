@@ -4,10 +4,10 @@ import { Employe } from './employe';
 
 export class Fourniture {
     idFourniture: number;
-    nomFourniture: String;
+    nomFourniture: string;
     quantiteDisponible: number;
     quantiteTotale: number;
-    typeFourniture: String;
+    typeFourniture: string;
     consommable: boolean;
     formulaire: FormulaireEmprunt[];
     employe: Employe[];

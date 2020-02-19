@@ -20,9 +20,13 @@ export class FournitureComponent implements OnInit {
     quantiteTotale : new FormControl('',Validators.required),
     typeFourniture : new FormControl('',Validators.required),
     consommable : new FormControl('',Validators.required)
-  })
+  });
 
-  constructor(private fournservice : FournitureService) { this.fourn = new Fourniture }
+  myFormDelete = new FormGroup({
+    idFourniture : new FormControl('',Validators.required)
+  });
+
+  constructor(private fournservice : FournitureService) { this.fourn = new Fourniture(); }
 
   ngOnInit() {
   }
@@ -35,7 +39,7 @@ export class FournitureComponent implements OnInit {
     });
   }
 
-  ajoutFourniture(){
+  ajoutFourniture() : void {
     this.fournservice.ajoutFourniture(this.fourn).subscribe(data=>{
       console.log( "Fourniture ajouté avec succès !!" );
       window.location.reload();
