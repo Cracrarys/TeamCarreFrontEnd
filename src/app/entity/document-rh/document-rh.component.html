@@ -32,7 +32,7 @@
                                     formControlName="dateEditionDocument" id="datepicker3" />
                             </div>
                             <div class="form-group">
-                                <label for="alterEgo">idEmploye</label>
+                                <label for="alterEgo">Nom Employe</label>
                                 <select [(ngModel)]="idemp" class="form-control" formControlName="idemp">
                                     <option value="" disabled>Nom employé</option>
                                     <option *ngFor="let emp of lstemployes" [ngValue]="emp.idEmploye">{{emp.nomEmploye}}
