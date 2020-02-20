@@ -12,12 +12,12 @@ export class DocumentRHService {
 
   public document_API = 'http://localhost:8080/documentRestController/';
 
-  ajoutDocument({ doc, idemp }: { doc: DocumentRH; idemp: string; }):Observable<any>{
+  ajoutDocumentService({ doc, idemp }: { doc: DocumentRH; idemp: string; }):Observable<any>{
     return this.http.post( this.document_API + 'ajout/' + idemp, doc);
   }
 
   suppDocument(id: number): Observable<any> {
-    return this.http.delete(this.document_API + '/supprimer/' + id);
+    return this.http.delete(this.document_API + 'supprimer/' + id);
   };
 
   getAllDocuments():Observable<any>{
