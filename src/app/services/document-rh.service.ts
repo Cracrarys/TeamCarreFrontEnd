@@ -10,15 +10,15 @@ export class DocumentRHService {
 
   constructor(private http:HttpClient) { }
 
-  public document_API = 'http://localhost:8081/documentRestController/';
+  public document_API = 'http://localhost:8080/documentRestController/';
 
   ajoutDocument({ doc, idemp }: { doc: DocumentRH; idemp: string; }):Observable<any>{
     return this.http.post( this.document_API + 'ajout/' + idemp, doc);
   }
 
-  supprimerDocument(idDoc:string):Observable<any>{
-    return this.http.delete(this.document_API + 'supprimer/' + idDoc);
-  }
+  suppDocument(id: number): Observable<any> {
+    return this.http.delete(this.document_API + '/supprimer/' + id);
+  };
 
   getAllDocuments():Observable<any>{
     return this.http.get(this.document_API + 'getAll');

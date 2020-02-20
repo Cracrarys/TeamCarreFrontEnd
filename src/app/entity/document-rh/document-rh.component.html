@@ -1,0 +1,158 @@
+<div class="card-header bg-dark text-white" align="center">
+    <h1 class="card-title"><b>Portail des documents</b></h1>
+</div>
+
+<div style="width:100%; margin:0 auto;background-color: darkslategrey;" align="center">
+    <br />
+    <br />
+    <div class="main-content" style="width:80%;">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" align="center">
+                    <h3 class="card-title">Ajouter un document</h3>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+
+                        <form [formGroup]="myForm">
+
+                            <div class="form-group">
+                                <label for="alterEgo">idDocument</label>
+                                <input type="number" [(ngModel)]="documentrh.idDocument" class="form-control"
+                                    formControlName="idDocument" />
+                            </div>
+                            <div class="form-group">
+                                <label for="alterEgo">typeDocument</label>
+                                <input type="string" [(ngModel)]="documentrh.typeDocument" class="form-control"
+                                    formControlName="typeDocument" />
+                            </div>
+                            <div class="form-group">
+                                <label for="alterEgo">dateEdition</label>
+                                <input type="number" [(ngModel)]="documentrh.dateEditionDocument" class="form-control"
+                                    formControlName="dateEditionDocument" />
+                            </div>
+                            <div class="form-group">
+                                <label for="alterEgo">idEmploye</label>
+                                <select [(ngModel)]="idEmp" class="form-control" formControlName="idEmp">
+                                    <option value="" disabled>Nom employé</option>
+                                    <option *ngFor="let emp of lstemployes" [ngValue]="emp.idEmploye">{{emp.nomEmploye}}
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <div align="center">
+                                <button class="btn btn-success btn-lg btn-block" type="button"
+                                    (click)="ajoutDocument()">Ajout/Modifier Document</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="main-content" style="width:80%;">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" align="center">
+                    <h3 class="card-title">Récupérer / Supprimer un document</h3>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <form [formGroup]="myFormDelete">
+                            <div class="form-group" align="center">
+                                <table class="table" border=1>
+                                    <thead class=" text-primary" align="center">
+                                        <th class="bg-info text-white">
+                                            Id Document
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Type document
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Date édition
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Employé
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr align="center">
+                                            <td width=33% align="center">
+                                                <select [(ngModel)]="documentrh.idDocument"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    (ngModelChange)="getDocumentId()">
+                                                    <option value="" disabled>Choix id document</option>
+                                                    <option *ngFor="let doc of lstdocuments" [ngValue]="doc.idDocument">
+                                                        {{doc.idDocument}}</option>
+                                                </select>
+                                            </td>
+                                            <td width=33%>{{doc.typeDocument}}</td>
+                                            <td width=33%>{{doc.dateEditionDocument}}</td>
+                                            <td width=33%>{{doc.employe.nomEmploye}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-danger btn-lg btn-block" type="button"
+                                    (click)="supprimerDocument()">Supprimer Document</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="main-content" style="width:80%;">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" align="center">
+                    <h3 class="card-title">Liste des documents</h3>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="form-group" align="center">
+                            <table class="table" border=1>
+                                <thead class=" text-primary" align="center">
+                                    <th class="bg-info text-white">
+                                        Id Document
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Type Document
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Date édition
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Employé
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let doc of lstdocuments" align="center">
+                                        <th width=33%>{{doc.idDocument}}</th>
+                                        <td width=33%>{{doc.typeDocument}}</td>
+                                        <td width=33%>{{doc.dateEditionDocument}}</td>
+                                        <td width=33%>{{doc.employe.nomEmploye}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+</div>
