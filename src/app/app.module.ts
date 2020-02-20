@@ -17,6 +17,8 @@ import { FormulaireEmpruntService } from './services/formulaire-emprunt.service'
 import { FournitureService } from './services/fourniture.service';
 import { ValidationFournitureComponent } from './validation-fourniture/validation-fourniture.component';
 import { HomeComponent } from './home/home.component';
+import { ContratComponent } from './contrat/contrat.component';
+import { AttestationComponent } from './attestation/attestation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HomeComponent } from './home/home.component';
     FournitureComponent,
     FormulaireEmpruntComponent,
     ValidationFournitureComponent,
-    HomeComponent
+    HomeComponent,
+    ContratComponent,
+    AttestationComponent
   ],
   imports: [
     BrowserModule,
