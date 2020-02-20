@@ -27,13 +27,13 @@
                                     formControlName="typeDocument" />
                             </div>
                             <div class="form-group">
-                                <label for="alterEgo">dateEdition</label>
-                                <input type="number" [(ngModel)]="documentrh.dateEditionDocument" class="form-control"
-                                    formControlName="dateEditionDocument" />
+                                <label for="alterEgo">date edition</label>
+                                <input type="string" [(ngModel)]="documentrh.dateEditionDocument" class="form-control"
+                                    formControlName="dateEditionDocument" id="datepicker3" />
                             </div>
                             <div class="form-group">
                                 <label for="alterEgo">idEmploye</label>
-                                <select [(ngModel)]="idEmp" class="form-control" formControlName="idEmp">
+                                <select [(ngModel)]="idemp" class="form-control" formControlName="idemp">
                                     <option value="" disabled>Nom employé</option>
                                     <option *ngFor="let emp of lstemployes" [ngValue]="emp.idEmploye">{{emp.nomEmploye}}
                                     </option>
@@ -94,9 +94,9 @@
                                                         {{doc.idDocument}}</option>
                                                 </select>
                                             </td>
-                                            <td width=33%>{{doc.typeDocument}}</td>
-                                            <td width=33%>{{doc.dateEditionDocument}}</td>
-                                            <td width=33%>{{doc.employe.nomEmploye}}</td>
+                                            <td width=33%>{{documentrh.typeDocument}}</td>
+                                            <td width=33%>{{documentrh.dateEditionDocument}}</td>
+                                            <td width=33%>{{documentrh.employe.nomEmploye}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -15,7 +15,7 @@ export class DocumentRHComponent implements OnInit {
 
   documentrh: DocumentRH;
   lstdocuments: DocumentRH[];
-  idEmp: string;
+  idemp: string;
   idDoc: string;
   employe: Employe;
   lstemployes: Employe[];
@@ -24,7 +24,7 @@ export class DocumentRHComponent implements OnInit {
     idDocument: new FormControl('', Validators.required),
     typeDocument: new FormControl('', Validators.required),
     dateEditionDocument: new FormControl('', Validators.required),
-    idEmp: new FormControl('', Validators.required)
+    idemp: new FormControl('', Validators.required)
   });
 
   myFormDelete = new FormGroup({
@@ -39,22 +39,11 @@ export class DocumentRHComponent implements OnInit {
   }
 
   ajoutDocument() {
-    this.documentrhservice.ajoutDocument({ doc: this.documentrh, idemp: this.idEmp }).subscribe(data => {
+    this.documentrhservice.ajoutDocumentService({ doc: this.documentrh, idemp: this.idemp }).subscribe(data => {
       console.log("Document ajouté avec succès !!");
       window.location.reload();
     });
   }
-
-  getDocumentId() {
-    this.documentrhservice.getDocById(this.documentrh.idDocument).subscribe(data => {
-      this.documentrh = data;
-      console.log("Got it !")
-    },
-      error => {
-        console.log(error);
-      });
-  }
-
   getAllDoc() {
     this.documentrhservice.getAllDocuments().subscribe(data => {
       this.lstdocuments = data;
@@ -66,15 +55,22 @@ export class DocumentRHComponent implements OnInit {
     this.employeservice.getAllEmployes().subscribe(data => {
       this.lstemployes = data;
     },
-      error => {
-        console.log(error);
-      });
+      error => { console.log(error); });
   }
-  supprimerDocument():void{
-    this.documentrhservice.suppDocument(this.documentrh.idDocument).subscribe(data=>{
+  supprimerDocument(): void {
+    this.documentrhservice.suppDocument(this.documentrh.idDocument).subscribe(data => {
       console.log("Document supprimée avec succès !")
       window.location.reload();
     });
+  }
+  getDocumentId() {
+    this.documentrhservice.getDocById(this.documentrh.idDocument).subscribe(data => {
+      this.documentrh = data;
+      console.log("Got it !")
+    },
+      error => {
+        console.log(error);
+      });
   }
 
 }

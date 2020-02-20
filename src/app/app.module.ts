@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { ValidationFournitureComponent } from './validation-fourniture/validatio
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl:'never'})
   ],
   providers: [DocumentRHService,EmployeService,FormulaireEmpruntService,FournitureService],
