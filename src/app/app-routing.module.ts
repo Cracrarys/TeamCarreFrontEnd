@@ -6,6 +6,7 @@ import { FormulaireEmpruntComponent } from './entity/formulaire-emprunt/formulai
 import { FournitureComponent } from './entity/fourniture/fourniture.component';
 import { ValidationFournitureComponent } from './validation-fourniture/validation-fourniture.component';
 import { HomeComponent } from './home/home.component';
+import { AttestationComponent } from './attestation/attestation.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'formulaire', component: FormulaireEmpruntComponent },
   { path: 'fourniture', component: FournitureComponent },
   { path: 'validation', component: ValidationFournitureComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'attestation', component: AttestationComponent }
 ];
 
 @NgModule({

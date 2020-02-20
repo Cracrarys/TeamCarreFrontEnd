@@ -1,1 +1,77 @@
-<p>attestation works!</p>
+<div class="main-content" style="width:100%;">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header" align="center">
+                <h3 class="card-title">Attestation</h3>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <form [formGroup]="myFormDelete">
+                        <div class="form-group" align="center">
+                            <table class="table" border=1 width=100%>
+                                <thead class=" text-primary" align="center">
+                                    <th class="bg-info text-white">
+                                        Id Employe
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Nom Employe
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Prenom Employe
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Sexe Employe
+                                    </th>
+                                    <th class="bg-info text-white">
+                                        Adresse Employe
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr align="center">
+                                        <td width=33% align="center">
+                                            <select [(ngModel)]="employe.idEmploye"
+                                                [ngModelOptions]="{standalone: true}"
+                                                (ngModelChange)="getEmpById()">
+                                                <option value="" disabled>Choix id Employe</option>
+                                                <option *ngFor="let emp of lstemployes" [ngValue]="emp.idEmploye">
+                                                    {{emp.idEmploye}}</option>
+                                            </select>
+                                        </td>
+                                        <td width=33%>{{employe.nomEmploye}}</td>
+                                        <td width=33%>{{employe.prenomEmploye}}</td>
+                                        <td width=33%>{{employe.sexeEmploye}}</td>
+                                        <td width=33%>{{employe.adresseEmploye}}</td>
+                                    </tr>
+                                    <tr align="center">
+                                        <th class="bg-info text-white">
+                                            Statut Employe
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Salaire Employe
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Type Contrat Employe
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Date Entree
+                                        </th>
+                                        <th class="bg-info text-white">
+                                            Date Sortie
+                                        </th>
+                                    </tr>
+                                    <tr align="center">
+                                        <td width=33%>{{employe.statutEmploye}}</td>
+                                        <td width=33%>{{employe.salaireEmploye}} € par mois</td>
+                                        <td width=33%>{{employe.typeContratEmploye}}</td>
+                                        <td width=33%>{{employe.dateEntreeEmploye}}</td>
+                                        <td width=33%>{{employe.dateSortieEmploye}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
