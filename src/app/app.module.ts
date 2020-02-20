@@ -15,6 +15,7 @@ import { EmployeService } from './services/employe.service';
 import { FormulaireEmpruntService } from './services/formulaire-emprunt.service';
 import { FournitureService } from './services/fourniture.service';
 import { ValidationFournitureComponent } from './validation-fourniture/validation-fourniture.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ValidationFournitureComponent } from './validation-fourniture/validatio
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl:'never'})
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl:'never'}),
+    NgbModule
   ],
   providers: [DocumentRHService,EmployeService,FormulaireEmpruntService,FournitureService],
   bootstrap: [AppComponent]

@@ -1,1 +1,60 @@
-<p>validation-fourniture works!</p>
+<div class="card-header bg-dark text-white" align="center">
+    <h1 class="card-title"><b>Portail des formulaires</b></h1>
+</div>
+<div style="width:100%; margin:0 auto;background-color: darkslategrey;" align="center">
+    <br/>
+    <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Liste des Formulaires non validés</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Formulaire
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Fourniture Demandée
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité demandée
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité disponible
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Date Emprunt
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Date Retour
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let fo of lstFormu" align="center">
+                                                <th width=33%>{{fo.idFormulaire}}</th>
+                                                <td width=33%>{{fo.employe.nomEmploye}}</td>
+                                                <td width=33%>{{fo.fourniture.nomFourniture}}</td>
+                                                <td width=33%>{{fo.quantite}}</td>
+                                                <td width=33%>{{fo.fourniture.quantiteDisponible}}</td>
+                                                <td width=33%>{{fo.dateEmprunt|date:'dd MMMM yyyy'}}</td>
+                                                <td width=33%>{{fo.dateRetour|date:'dd MMMM yyyy'}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+    </div>

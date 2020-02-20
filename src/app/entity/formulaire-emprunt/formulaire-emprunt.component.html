@@ -1,1 +1,186 @@
-<p>formulaire-emprunt works!</p>
+<div class="card-header bg-dark text-white" align="center">
+    <h1 class="card-title"><b>Portail des formulaires</b></h1>
+</div>
+
+    <div style="width:100%; margin:0 auto;background-color: darkslategrey;" align="center">
+        <br/>
+        <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Ajouter/Modifier un formulaire</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+
+                            <form [formGroup]="myForm">
+
+                                <div class="form-group">
+                                    <label for="alterEgo">idFormulaire</label>
+                                    <input type="number" [(ngModel)]="formu.idFormulaire" class="form-control"
+                                        formControlName="idFormulaire" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">typeFormulaire</label>
+                                    <input type="string" [(ngModel)]="formu.typeFormulaire" class="form-control"
+                                        formControlName="typeFormulaire" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">quantite</label>
+                                    <input type="number" [(ngModel)]="formu.quantite" class="form-control"
+                                        formControlName="quantite" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">nomFormulaire</label>
+                                    <input type="string" [(ngModel)]="formu.nomFormulaire" class="form-control"
+                                        formControlName="nomFormulaire" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">dateEmprunt</label>
+                                    <input type="string" [(ngModel)]="formu.dateEmprunt" class="form-control"
+                                        formControlName="dateEmprunt" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">dateRetour</label>
+                                    <input type="string" [(ngModel)]="formu.dateRetour" class="form-control"
+                                        formControlName="dateRetour" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">Id Employe</label>
+                                    <select [(ngModel)]="idEmp" class="form-control" formControlName="idEmp" >
+                                        <option value="" disabled>Choisir l'id de l'employé</option>
+                                        <option *ngFor="let emp of lstEmpl" [ngValue]="emp.idEmploye" >{{emp.idEmploye}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alterEgo">Id Fourniture</label>
+                                    <select [(ngModel)]="idFour" class="form-control" formControlName="idFour" >
+                                        <option value="" disabled>Choisir l'id de la fourniture</option>
+                                        <option *ngFor="let fourn of lstFour" [ngValue]="fourn.idFourniture" >{{fourn.idFourniture}}</option>
+                                    </select>
+                                </div>
+
+
+                                <div align="center">
+                                    <button class="btn btn-success btn-lg btn-block" type="button" (click)="ajoutFormulaire()">Ajout/Modifier Formulaire</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Récupérer / Supprimer un formulaire</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <form [formGroup]="myFormDelete">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1 width = 100%>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Formulaire
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Fourniture Demandée
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité demandée
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Date Emprunt
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr align="center">
+                                                <td width=33% align="center">
+                                                    <select [(ngModel)]="formu.idFormulaire" [ngModelOptions]="{standalone: true}" (ngModelChange)="getFormById()">
+                                                        <option value="" disabled>Choix id du formulaire</option>
+                                                        <option *ngFor="let fo of lstFormu" [ngValue]="fo.idFormulaire" >{{fo.idFormulaire}}</option>
+                                                    </select>
+                                                </td>
+                                                <td width=33%>{{nomEmp}}</td>
+                                                <td width=33%>{{nomFourn}}</td>
+                                                <td width=33%>{{formu.quantite}}</td>
+                                                <td width=33%>{{formu.dateEmprunt|date:'dd MMMM yyyy'}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button class="btn btn-danger btn-lg btn-block" type="button" (click)="supprimerFourniture()">Supprimer Fourniture</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Liste des Formulaires</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                                <div class="form-group" align="center">
+                                    <table class="table" border=1>
+                                        <thead class=" text-primary" align="center">
+                                            <th class="bg-info text-white">
+                                                Id Formulaire
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Employe
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Fourniture Demandée
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Quantité demandée
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Date Emprunt
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Date Retour
+                                            </th>
+                                            <th class="bg-info text-white">
+                                                Demande validée ?
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let fo of lstFormu" align="center">
+                                                <th width=33%>{{fo.idFormulaire}}</th>
+                                                <td width=33%>{{fo.employe.nomEmploye}}</td>
+                                                <td width=33%>{{fo.fourniture.nomFourniture}}</td>
+                                                <td width=33%>{{fo.quantite}}</td>
+                                                <td width=33%>{{fo.dateEmprunt|date:'dd MMMM yyyy'}}</td>
+                                                <td width=33%>{{fo.dateRetour|date:'dd MMMM yyyy'}}</td>
+                                                <td width=33%>{{fo.demandeValidee}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+    </div>
