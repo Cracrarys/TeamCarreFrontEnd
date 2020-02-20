@@ -9,7 +9,8 @@ import { Employe } from '../model/employe';
 })
 export class AttestationComponent implements OnInit {
   employe: Employe;
-  lstemployes: Employe[];
+  lstEmp: Employe[];
+  dateJour : number;
 
   constructor(private employeservice: EmployeService) { this.employe = new Employe }
 
@@ -33,7 +34,7 @@ export class AttestationComponent implements OnInit {
 
   getAllEmp(){
     this.employeservice.getAllEmployes().subscribe(data=>{
-      this.lstemployes = data;
+      this.lstEmp = data;
       console.log( "Liste des employés récupérée !" );
     },
       error => {console.log(error);
@@ -41,6 +42,7 @@ export class AttestationComponent implements OnInit {
   }
 
   getEmpById(){
+    this.dateJour = Date.now();
     this.employeservice.getEmpById(this.employe.idEmploye).subscribe(data=>{
       this.employe = data;
     },
