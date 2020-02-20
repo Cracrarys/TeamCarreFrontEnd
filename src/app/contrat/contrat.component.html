@@ -36,10 +36,42 @@
                     </div>
                     <div class="card-body">
                         <div class="container">
-                            <div class="form-group" align="center">
-                                <table>
+                            <div class="form-group">
+                                <table width = 100%>
                                     <tr>
-                                        <td>Nom</td>
+                                        <td width=35% align="right">Nom :</td>
+                                        <td><b>{{employe.nomEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Prenom : </td>
+                                        <td><b>{{employe.prenomEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Adresse : </td>
+                                        <td><b>{{employe.adresseEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Type Contrat : </td>
+                                        <td><b>{{employe.typeContratEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Statut : </td>
+                                        <td><b>{{employe.statutEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Date début contrat : </td>
+                                        <td><b>{{employe.dateEntreeEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Salaire : </td>
+                                        <td><b>{{employe.salaireEmploye}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Date génération contrat : </td>
+                                        <td><b>{{dateJour|date:'dd MMMM yyyy'}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width=35% align="right">Signature : </td>
                                         <td></td>
                                     </tr>
                                 </table>
