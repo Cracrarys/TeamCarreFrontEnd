@@ -1,1 +1,55 @@
-<p>contrat works!</p>
+<div class="card-header bg-dark text-white" align="center">
+    <h1 class="card-title"><b>Génération du contrat de travail</b></h1>
+</div>
+<div style="width:100%; margin:0 auto;background-color: darkslategrey;" align="center">
+    <br/>
+    <br/>
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Choix Employe</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <form [formGroup]="myForm">
+                                <div class="form-group" align="center">
+                                    <select [(ngModel)]="employe.idEmploye" [ngModelOptions]="{standalone: true}" (ngModelChange)="getEmpById()">
+                                        <option value="" disabled>Choix id du formulaire</option>
+                                        <option *ngFor="let emp of lstEmp" [ngValue]="emp.idEmploye" >{{emp.idEmploye}}</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        
+        <div class="main-content" style="width:80%;">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header" align="center">
+                        <h3 class="card-title">Génération contrat de travail</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="form-group" align="center">
+                                <table>
+                                    <tr>
+                                        <td>Nom</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+    </div>
