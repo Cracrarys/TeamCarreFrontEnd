@@ -14,14 +14,12 @@ export class ValidationFournitureComponent implements OnInit {
   formu : FormulaireEmprunt;
   lstFormu : FormulaireEmprunt[];
   fourn : Fourniture;
-  id : string;
   idEmp:number;
   idFour:number;
 
   myForm = new FormGroup({
-    demandeValidee : new FormControl('',Validators.required),
-    idEmp : new FormControl('',Validators.required),
-    idFour : new FormControl('',Validators.required)
+    idFormulaire : new FormControl('',Validators.required),
+    demandeValidee : new FormControl('',Validators.required)
   });
 
   constructor(private formser : FormulaireEmpruntService) { this.formu = new FormulaireEmprunt(); }
@@ -40,10 +38,19 @@ export class ValidationFournitureComponent implements OnInit {
   }
 
   ajoutFormulaire() : void{
-    this.formser.ajoutFormulaire(this.formu,this.idEmp,this.idFour).subscribe(data=>{
+    this.formser.ajoutFormulaire(this.formu,this.formu.employe.idEmploye,this.formu.fourniture.idFourniture).subscribe(data=>{
       console.log( "Formulaire ajouté avec succès !!" );
       window.location.reload();
     });
   }
+
+  getFormById(){
+    this.formser.findFormulaire(this.formu.idFormulaire).subscribe(data=>{
+      this.formu = data;
+      console.log( "Formulaire récupéré avec succès !!" );
+    });
+  }
+
+  rien():void{}
 
 }
